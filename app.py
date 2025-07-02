@@ -1,7 +1,10 @@
 import streamlit as st
-openai_key = st.secrets["OPENAI_API_KEY"]
-
-from langchain_core.memory import ConversationBufferMemory  # ✅ NEW
+from dotenv import load_dotenv
+load_dotenv()
+# ───── API Key ───── #
+import os
+openai_api_key = os.getenv("OPENAI_API_KEY")
+from langchain.memory import ConversationBufferMemory  # ✅ NEW
 from langchain_community.llms import OpenAI
 from langchain.document_loaders import DirectoryLoader
 from langchain.embeddings import OpenAIEmbeddings
