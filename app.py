@@ -18,11 +18,12 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 # Use TextLoader with encoding explicitly set to 'utf-8'
 loader = DirectoryLoader(
-    "travel_data",
-    glob="**/*.txt",
+    ".",  # root folder
+    glob="*.txt",  # match all txt files
     loader_cls=TextLoader,
     loader_kwargs={"encoding": "utf-8"}
 )
+
 documents = loader.load()
 
 splitter = RecursiveCharacterTextSplitter(
